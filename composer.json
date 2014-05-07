@@ -15,7 +15,7 @@
         "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
-        "psr-0": {"PAXB": "PAXB/"}
+        "psr-0": {"PAXB\\Bundle\\": "PAXB/Bundle/"}
     },
     "config": {
         "vendor-dir": "vendor/",
