@@ -1,0 +1,38 @@
+{
+    "name": "publib/PAXBBridge",
+    "type": "library",
+    "description": "PAXB bridge for symfony2 - PAXB is PHP Annotation Xml Binding, basic implementation of annotation driven xml binding",
+    "keywords": ["xml", "binding", "marshalling", "symfony2", "bridge"],
+    "license": "MIT",
+    "version" : "1.0.0-rc",
+    "require": {
+        "php": ">=5.3.3",
+        "publib/PAXB": "dev-master",
+        "symfony/framework-bundle": "~2.0",
+        "doctrine/common": "2.4.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-0": {"PAXB": "PAXB/"}
+    },
+    "config": {
+        "vendor-dir": "vendor/",
+        "bin-dir": "bin"
+    },
+    "minimum-stability" : "dev",
+    "authors": [
+        {
+            "name": "Tomasz Ziółkowski",
+            "email": "tomasz.ziolkowski@g.pl",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/ziollek/PAXB.git"
+        }
+    ]
+}

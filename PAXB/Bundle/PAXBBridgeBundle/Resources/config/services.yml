@@ -1,0 +1,36 @@
+parameters:
+
+services:
+    paxb_bridge.marshaller:
+        class: PAXB\Xml\Marshalling\DOMDocumentMarshaller
+        arguments: [@paxb_bridge.cached_metadata_factory]
+
+    paxb_bridge.unmarshaller:
+        class: PAXB\Xml\Marshalling\DOMDocumentUnmarshaller
+        arguments: [@paxb_bridge.cached_metadata_factory]
+
+    paxb_bridge.cached_metadata_factory:
+        class: PAXB\Xml\Binding\Metadata\CachedClassMetadataFactory
+        arguments: [@paxb_bridge.base_metadata_factory, @paxb_bridge.cache]
+
+    paxb_bridge.base_metadata_factory:
+        class: PAXB\Xml\Binding\Metadata\BaseClassMetadataFactory
+        arguments: [@paxb_bridge.annotation_loader]
+
+    paxb_bridge.annotation_loader:
+        class: PAXB\Xml\Binding\AnnotationLoader
+        arguments: [@paxb_bridge.annotation_reader]
+
+    paxb_bridge.annotation_reader_factory:
+        class: PAXB\Bundle\PAXBBridgeBundle\Annotation\AnnotationReaderFactory
+
+    paxb_bridge.annotation_reader:
+        class: Doctrine\Common\Annotations\SimpleAnnotationReader
+        factory_service: paxb_bridge.annotation_reader_factory
+        factory_method: create
+
+
+    paxb_bridge.cache:
+        class: Doctrine\Common\Cache\ArrayCache
+
+
